@@ -204,3 +204,30 @@ aside {
 .users.follow {
   padding: 0;
 }
+
+h2 {
+  color : red;
+  bborder-bottom: 1px solid $gray-lighter;
+}
+
+h3 {
+  color : #006eb3
+}
+
+.category {
+  margin-top: 30px;
+  p {
+    height: 100px;
+    width: 100%;
+    overflow-y: auto;
+    float:left;
+  }
+}
+
+#your_col {
+      border-left: 1px solid black;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
