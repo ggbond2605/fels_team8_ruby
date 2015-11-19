@@ -21,34 +21,42 @@ User.create!(name:  "Example User",
                password_confirmation: password)
 end
 
-category = Category.create(name: "Basic 500")
-word = Word.create(content: "test1", category_id: category.id)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
-Lesson.create(user_id: 1)
-was = WordAnswer.create(content: "kiem tra 1", word_id: word.id, correct: true)
-LessonWord.create(lesson_id: 1, word_id: word.id, word_answer_id: was.id)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
+category = Category.create(name: "Basic 500", description: "500 popular word")
 
 
-word = Word.create(content: "test2", category_id: category.id)
-WordAnswer.create(content: "kiem tra 2", word_id: word.id, correct: true)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
 
-category = Category.create(name: "Basic 1000")
-word = Word.create(content: "test3", category_id: category.id)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
-WordAnswer.create(content: "kiem tra 3", word_id: word.id, correct: true)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
 
-word = Word.create(content: "test4", category_id: category.id)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
-WordAnswer.create(content: "answert", word_id: word.id, correct: false)
-WordAnswer.create(content: "kiem tra 4", word_id: word.id, correct: true)
+category = Category.create(name: "Basic 1000", description: "1000 word in daily life")
+
+
+100.times do
+  content = Faker::Lorem.word
+  category_id = rand(1..2)
+  Word.create! content: content, category_id: category_id
+end
+
+
+
+categories = Category.all
+30.times do
+  categories.each do |category|
+    content = Faker::Lorem.word
+    category.words.create content: content
+  end
+end
+
+words = Word.all
+3.times do
+  words.each do |word|
+    content = Faker::Lorem.word
+    word.word_answers.create content: content
+  end
+end
+
+words.each do |word|
+  content = Faker::Lorem.word
+  word.word_answers.create content: content, correct: true
+end
 
 
 # Following relationships

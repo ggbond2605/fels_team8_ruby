@@ -15,12 +15,17 @@
 		<%= submit_tag "Filter", :class => 'btn btn-lg btn-primary'%>
 		<%= submit_tag "PDF", :class => 'btn btn-lg btn-primary'%>
 		<br/><br/><hr>
+		<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+		<div class="panel-body">
 	<table class="table">
-	<tbody>
+	    <thead>
 		<tr>
 			<td>Word</td>
 			<td>Mean</td>
 		</tr>
+		</thead>
+		<tbody>
 		<% @words.each do |word| %>	
 			<tr>
 		    	<td><%= word.content %></td>
@@ -31,4 +36,7 @@
 	
 	</tbody>
 	</table>
+	</div>
+	</div>
+	</div>
 </div>	
